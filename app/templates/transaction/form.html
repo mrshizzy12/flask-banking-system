@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "bootstrap/form.html" import render_field %}
+
+{% block title %} {{ title }} | {{ super() }} {% endblock title %}
+
+{% block page_content %}
+<div class="alert alert-info" role="alert"><h4>Your Current Account Balance is ${{ current_user.balance }} </h4></div>
+
+<h2>{{ title }}</h2><hr>
+<form method="POST" action="" >
+    {{ form.csrf_token }}
+    {{ render_field(form.amount) }}
+    <br>
+    <input class="btn btn-primary" type="submit" value='{{ title }}'>
+</form>
+{% endblock page_content %}
+

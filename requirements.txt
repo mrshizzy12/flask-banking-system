@@ -1,0 +1,11 @@
+Flask==2.0.1
+Flask-Admin==1.5.8
+Bootstrap-Flask==1.5.1
+Flask-SQLAlchemy==2.5.1
+Flask-Login==0.4.1
+Flask-Migrate==3.0.0
+Flask-Moment==0.6.0
+Flask-HTTPAuth==3.2.4
+celery==5.0.5
+phonenumbers==8.12.7
+redis==3.5.3

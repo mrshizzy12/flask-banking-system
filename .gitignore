@@ -1,0 +1,13 @@
+.env 
+__pycache__
+.vscode
+.pytest_cache
+env
+venv
+.coverage
+celerybeat-schedule.bak
+celerybeat-schedule.dat
+celerybeat-schedule.dir
+celerybeat.pid
+.flaskenv
+db.sqlite3

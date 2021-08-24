@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ url_for('main.home') }}">Banking System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% if current_user.is_authenticated %}
+          {{ render_nav_item('transaction.deposit_view', 'Deposit') }}
+          {{ render_nav_item('transaction.withdrawal_view', 'Withdrawal') }}
+        {% else %}
+          {{ render_nav_item('main.home', 'Home') }}
+        {% endif %}
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+          {% if current_user.is_authenticated %}
+              <a href="{{ url_for('auth.logout') }}" class="btn btn-danger btn-sm" type="button">Logout</a>
+          {% else %}
+              <a href="{{ url_for('auth.login') }}" class="btn btn-success btn-sm" type="button">Log in</a> |
+              <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-sm" type="button">Create an Account</a>
+          {% endif %}
+      </form>
+    </div>
+</nav>

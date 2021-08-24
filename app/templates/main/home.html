@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} home | {{ super() }} {% endblock title %}
+
+{% block page_content %}
+<div class="container" style="padding-top: 50px;">
+  <div class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Universal Bank</h1>
+        <hr>
+        
+        <p>
+          <a class="btn btn-primary btn-md" href="{{ url_for('auth.login') }}" role="button">Load Account Details</a>
+          <a class="btn btn-success btn-md" href="{{ url_for('auth.register') }}" role="button">Create a Bank Account</a>
+        </p>
+      </div>
+  </div>
+</div>
+{% endblock %}

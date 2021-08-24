@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} {{ title }} | {{ super() }} {% endblock %}
+
+{% from "bootstrap/form.html" import render_form %}
+
+
+{% block page_content %}
+    <h2>{{ title }}</h2><hr>
+    {{ render_form(form) }}
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+<script>
+    var wtf_phone_field = document.getElementById('phone_number');
+    wtf_phone_field.style.position = 'absolute';
+    wtf_phone_field.style.top = '-9999px';
+    wtf_phone_field.style.left = '-9999px';
+    wtf_phone_field.parentElement.insertAdjacentHTML('beforeend', '<div><input type="tel" id="_phone"></div>');
+
+    var fancy_phone_field = document.getElementById('_phone');
+    var fancy_phone_iti = window.intlTelInput(fancy_phone_field, {
+        separateDialCode: true,
+        utilsScript: "{{ url_for('static', filename='js/utils.js') }}",
+
+    });
+    fancy_phone_iti.setNumber(wtf_phone_field.value);
+    fancy_phone_field.addEventListener('blur', ()=>{
+        wtf_phone_field.value = fancy_phone_iti.getNumber();
+    });
+</script>
+{% endblock %}

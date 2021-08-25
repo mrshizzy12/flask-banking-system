@@ -97,6 +97,7 @@ $ (env) flask run     # 127.0.0.1:5000
 (Different Terminal Window with Virtual Environment Activated)
 ```bash/cmd
 $ (env) celery -A celery_worker.celery worker -l info -P solo
+```
 
 ### Run Celery beat
 (Different Terminal Window with Virtual Environment Activated)
